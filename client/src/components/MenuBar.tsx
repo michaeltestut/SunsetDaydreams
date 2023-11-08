@@ -1,17 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import DropdownMenu from './DropdownMenu'
 
 const MenuBar: React.FC = () => {
+    const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
+    const handleMouseEnter =()=>{
+      setIsDropdownVisible(true);
+  }
+    const handleMouseLeave =()=>{
+      setIsDropdownVisible(false);
+  }
     return (
-        <Container>
-            <div className="menu">
-                <Link to="/" className='headerLink'>Home</Link>
-                <Link to="/apparel" className='headerLink'>Apparel</Link>
-                <Link to="/accessories" className='headerLink'>Accessories</Link>
-                <Link to="/sale" className='headerLink'>SALE</Link>
-            </div>
-        </Container>
+        <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+            <Container>
+                <div className="menu">
+                    <Link to="/" className='headerLink'>Home</Link>
+                    <Link to="/apparel" className='headerLink'>Apparel</Link>
+                    <Link to="/accessories" className='headerLink'>Accessories</Link>
+                    <Link to="/sale" className='headerLink'>SALE</Link>
+                </div>
+            </Container>
+            <StyledDropdown>
+                <div className='dropdown'>
+                    {isDropdownVisible && <DropdownMenu />}
+                </div>
+            </StyledDropdown>
+        </div>
+
     )
 }
 
@@ -40,4 +56,13 @@ border-bottom: 4px solid #89dd3d;
 
       }
 }
+`
+const StyledDropdown = styled.div`
+position:absolute;
+left:30%;
+display:flex;
+align-items:center;
+justify-content:space-evenly;
+width:40vw;
+background-color:pink;
 `
