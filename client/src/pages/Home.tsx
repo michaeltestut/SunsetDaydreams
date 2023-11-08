@@ -8,8 +8,7 @@ sampleProducts
 export default function Home() {
     return (
         <Container>
-            <Header />
-            <MenuBar />
+            {/* <Header /> */}
             <ul>
                 {sampleProducts.map((product) => (
                 <li>

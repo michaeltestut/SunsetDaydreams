@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import logo from '../../public/images/Sunset Daydreams-pink@3x.png'
 import backgroundImage from '../../public/images/Deliberate_11_A_Hyper_Realistic_Ultra_Detailed_Photograph_plan_1.jpg'
 import { Link } from 'react-router-dom'
+import MenuBar from './MenuBar'
 export default function Header() {
   return (
       <Container>
@@ -11,12 +12,14 @@ export default function Header() {
             <img className='logoImage' src={logo} />
           </Link>
         </div>
+        <MenuBar />
     </Container>
   )
 }
 
 const Container = styled.div`
     display:flex;
+    flex-direction:column;
     text-align:center;
     align-items: center;
     justify-content:center;
@@ -26,7 +29,7 @@ const Container = styled.div`
     background-image: url("${backgroundImage}");
     
     .logoImage{
-      width: 18vw;
+      width: 16vw;
     }
     
 
