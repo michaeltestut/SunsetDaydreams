@@ -8,7 +8,6 @@ sampleProducts
 export default function Home() {
     return (
         <Container>
-            {/* <Header /> */}
             <ul>
                 {sampleProducts.map((product) => (
                 <li>
@@ -21,11 +20,11 @@ export default function Home() {
 }
 
 const Container = styled.div`
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    text-align:center;
+   display:flex;
+   
+   img{
+    height: 20vh;
+   }
 
 
 `

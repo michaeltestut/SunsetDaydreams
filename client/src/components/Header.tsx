@@ -25,6 +25,7 @@ export default function Header() {
 
 const Container = styled.div`
     position:absolute;
+    top:0%;
     display:flex;
     flex-direction:column;
     text-align:center;
