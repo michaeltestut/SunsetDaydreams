@@ -16,9 +16,9 @@ const MenuBar: React.FC = () => {
             <Container>
                 <div className="menu">
                     <Link to="/" className='headerLink'>Home</Link>
-                    <Link to="/apparel" className='headerLink'>Apparel</Link>
-                    <Link to="/accessories" className='headerLink'>Accessories</Link>
-                    <Link to="/sale" className='headerLink'>SALE</Link>
+                    <Link to="/apparel" className='headerLink'>Men's</Link>
+                    <Link to="/accessories" className='headerLink'>Women's</Link>
+                    <Link to="/sale" className='headerLink'>Accessories</Link>
                 </div>
             </Container>
             <StyledDropdown>
@@ -59,10 +59,10 @@ border-bottom: 4px solid #89dd3d;
 `
 const StyledDropdown = styled.div`
 position:absolute;
-left:30%;
+left:38%;
 display:flex;
 align-items:center;
 justify-content:space-evenly;
-width:40vw;
-background-color:pink;
+width:30vw;
+background-color:rgba(243, 112, 201, .7);
 `

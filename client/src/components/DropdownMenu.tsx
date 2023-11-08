@@ -1,33 +1,28 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export default function DropdownMenu() {
   return (
     <Container>
         <table>
+            {/* <tr>
+                <th><Link className='link' to='/'>All Men's</Link></th>
+                <th><Link className='link' to='/'>All Women's</Link></th>
+                <th><Link className='link' to='/'>All Accessories</Link></th>
+                
+            </tr> */}
             <tr>
-                <th>header1</th>
-                <th>header2</th>
-                <th>header3</th>
-                <th>header4</th>
-            </tr>
-            <tr>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
                 <td>option2</td>
                 <td>option3</td>
                 <td>option4</td>
             </tr>
             <tr>
-                <td></td>
                 <td>option2</td>
                 <td>option3</td>
                 <td>option4</td>
             </tr>
             <tr>
-                <td></td>
                 <td>option2</td>
                 <td>option3</td>
                 <td>option4</td>
@@ -39,12 +34,19 @@ export default function DropdownMenu() {
 
 const Container = styled.div`
     table{
-        width:40vw;
+        width:30vw;
         display;flex;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        
+        tr{
+            display:flex;
+            justify-content:space-around;
+        }
+    }
+    .link{
+        color:white;
+        opacity: 80%;
+        &:hover{
+            opacity:100%;
+        }
     }
 
 `
