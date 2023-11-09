@@ -1,7 +1,5 @@
 
-import { BrowserRouter, Routes, Route, Outlet } from 'react-router-dom'
-import Home from './pages/Home'
-import AdminLogin from './pages/AdminLogin'
+import { Outlet } from 'react-router-dom'
 import Header from './components/Header'
 
 function App() {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import DropdownMenu from './DropdownMenu'
 import 'react-bootstrap'
-import { Col, Row } from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 
 
 
