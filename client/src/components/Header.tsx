@@ -6,45 +6,42 @@ import { Link } from 'react-router-dom'
 import MenuBar from './MenuBar'
 
 
-
 export default function Header() {
 
   return (
-      <Container>
-        <div className='logo'>
-          <Link to="/">
-            <img className='logoImage' src={logo} />
-          </Link>
-        </div>
-        <div className='menubar'>
-          <MenuBar/>
-        </div>
-    </Container>
+      <StyledContainer>
+          <div className='logo'>
+            <Link to="/">
+              <img className='logoImage' src={logo} />
+            </Link>
+          </div>
+          
+            <MenuBar/>
+      </StyledContainer>
+    
   )
 }
 
-const Container = styled.div`
-    position:absolute;
-    top:0%;
+const StyledContainer = styled.div`
+    position:sticky;
     display:flex;
     flex-direction:column;
     text-align:center;
     align-items: center;
     justify-content:space-between;
-    height:20vh;
-    width: 100vw;
-
+    height:15%;
+    width: 100%;
     background-image: url("${backgroundImage}");
+    top:0!important;
+    
+
     
     .logoImage{
-      width: 16vw;
+      width: 20%;
+      position:relative;
+      margin: auto;
     }
 
-    .menubar{
-
-    }
-
- 
     
 
 

@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import DropdownMenu from './DropdownMenu'
+import '../App.css'
+
 
 const MenuBar: React.FC = () => {
     const [isDropdownVisible, setIsDropdownVisible] = useState<boolean>(false);
@@ -14,7 +16,7 @@ const MenuBar: React.FC = () => {
     return (
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <Container>
-                <div className="menu">
+                <div className="menu col-lg-8 col-xs-12 col-centered">
                     <Link to="/" className='headerLink'>Home</Link>
                     <Link to="/apparel" className='headerLink'>Men's</Link>
                     <Link to="/accessories" className='headerLink'>Women's</Link>
@@ -34,6 +36,7 @@ const MenuBar: React.FC = () => {
 export default MenuBar
 
 const Container = styled.div`
+height:100%;
 display: flex;
 justify-content:center;
 background-color:white;
@@ -65,4 +68,7 @@ align-items:center;
 justify-content:space-evenly;
 width:30vw;
 background-color:rgba(243, 112, 201, .7);
+padding:0;
+margin:0;
+
 `

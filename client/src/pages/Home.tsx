@@ -1,30 +1,36 @@
 import React from 'react'
-import Header from '../components/Header'
-import MenuBar from '../components/MenuBar.tsx'
 import styled from 'styled-components'
 import { sampleProducts } from '../data.ts'
-sampleProducts
+import { Row,Col,Container } from 'react-bootstrap'
 
 export default function Home() {
     return (
-        <Container>
-            <ul>
-                {sampleProducts.map((product) => (
-                <li>
-                    <h2>{product.name}</h2>
-                    <img src ={product.image} />
-                </li>))}
-            </ul>
-        </Container>
+        <StyledContainer>
+            <Container className='mt-3'>
+                <Row>
+                    {sampleProducts.map((product) => (
+                    <Col key={product.url_slug} sm={6} md={4} lg={3}>
+                        <img className="product-img" src ={product.image} />
+                        <h2>{product.name}</h2>
+                    </Col>))}
+                </Row>
+            </Container>
+        </StyledContainer>
     )
 }
 
-const Container = styled.div`
+const StyledContainer = styled.div`
    display:flex;
-   
-   img{
-    height: 20vh;
+   width:100vw;
+   justify-content:space-between;
+
+   .product-img{
+        max-width: 400px;
+        width: 100%;
    }
+  
+   
+   
 
 
 `
