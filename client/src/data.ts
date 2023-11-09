@@ -3,8 +3,8 @@ import image1 from '../public/images/mens-classic-tee-black-front-64c04f21c5610.
 import image2 from '../public/images/mens-classic-tee-white-front-64c170ff7337b.webp'
 export const sampleProducts:Product[] = [
     {
-        name: 'new shirt',
-        url_slug:'new_shirt',
+        name: 'Delorean T-Shirt',
+        url_slug:'delorean_t_shirt',
         image: image1,
         price: 20,
         category: 
@@ -15,8 +15,8 @@ export const sampleProducts:Product[] = [
         
     },
     {
-        name: 'old shirt',
-        url_slug:'old_shirt',
+        name: 'Aliens Exist T-Shirt',
+        url_slug:'aliens_exist_t_shirt',
         image: image2,
         price: 20,
         category: 
