@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import DropdownMenu from './DropdownMenu'
-import '../App.css'
+import 'react-bootstrap'
+import { Col, Row } from 'react-bootstrap'
+
 
 
 const MenuBar: React.FC = () => {
@@ -16,12 +18,12 @@ const MenuBar: React.FC = () => {
     return (
         <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <Container>
-                <div className="menu col-lg-8 col-xs-12 col-centered">
+                <Row className="menu" sm={6} md={4} lg={4}>
                     <Link to="/" className='headerLink'>Home</Link>
                     <Link to="/apparel" className='headerLink'>Men's</Link>
                     <Link to="/accessories" className='headerLink'>Women's</Link>
                     <Link to="/sale" className='headerLink'>Accessories</Link>
-                </div>
+                </Row>
             </Container>
             <StyledDropdown>
                 <div className='dropdown'>
@@ -47,7 +49,8 @@ border-bottom: 4px solid #89dd3d;
     display:flex;
     justify-content: space-around;
     align-items:center;
-    width: 40vw;
+    width: 40%;
+    
     
 }
 .headerLink{
@@ -62,7 +65,7 @@ border-bottom: 4px solid #89dd3d;
 `
 const StyledDropdown = styled.div`
 position:absolute;
-left:38%;
+left:41%;
 display:flex;
 align-items:center;
 justify-content:space-evenly;
