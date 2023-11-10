@@ -6,12 +6,12 @@ import styled from "styled-components";
 export default function ProductCard({product}: {product: Product}){
     return(
         <StyledContainer>
-            <div className='item-card'>
+            <div className='img-card'>
                 <Link to={`/product/${product.url_slug}`}>
                     <img src={product.image} className="card-img-top" alt={product.name} />
                 </Link>
             </div>
-            <Card.Body>
+            <div className="info-card">
                 <Link className="link" to={`/product/${product.url_slug}`}>
                     <Card.Title>{product.name}</Card.Title>
                 </Link>
@@ -23,19 +23,29 @@ export default function ProductCard({product}: {product: Product}){
                         <Button variant="outline-dark">Add to cart</Button>
                     )}
                 </div>
-            </Card.Body>
+            </div>
         </StyledContainer>
     )
 
 }
 
 const StyledContainer=styled.div`
-.item-card{
+&:hover{
+    box-shadow: 5px 5px 10px 0px grey;
+    border: 2px solid pink;
+    border-radius: 0px 0px 10px 10px;
+}
+.img-card{
     padding:5px;
     border:2px solid lightgrey;
-    &:hover{
-        border:2px solid pink;
-    }
+}
+
+.info-card{
+    background-color: rgba(12,12,12,.05);
+    border:1px solid lightgrey;
+    border-top:none;
+    border-radius: 0px 0px 10px 10px;
+    padding: 10px;
 }
 .link{
     color:black;
