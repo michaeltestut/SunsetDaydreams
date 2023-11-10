@@ -30,19 +30,25 @@ export default function ProductCard({product}: {product: Product}){
 }
 
 const StyledContainer=styled.div`
+
 &:hover{
+    .img-card{
+        border:none;
+    }
     box-shadow: 5px 5px 10px 0px grey;
     border: 2px solid pink;
     border-radius: 0px 0px 10px 10px;
 }
 .img-card{
     padding:5px;
-    border:2px solid lightgrey;
+    border:2px solid rgba(12,12,12,.05);
+    border-bottom:none;
+    
 }
 
 .info-card{
     background-color: rgba(12,12,12,.05);
-    border:1px solid lightgrey;
+    
     border-top:none;
     border-radius: 0px 0px 10px 10px;
     padding: 10px;
