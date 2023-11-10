@@ -1,7 +1,6 @@
-import React from 'react'
 import styled from 'styled-components'
-import logo from '../../public/images/Sunset Daydreams-pink@3x.png'
-import backgroundImage from '../../public/images/Deliberate_11_A_Hyper_Realistic_Ultra_Detailed_Photograph_plan_1.jpg'
+import logo from '../assets/images/Sunset Daydreams-pink@3x.png'
+import backgroundImage from '../assets/images/background.jpg'
 import { Link } from 'react-router-dom'
 import MenuBar from './MenuBar'
 
