@@ -8,16 +8,16 @@ import MenuBar from './MenuBar'
 export default function Header() {
 
   return (
-      <StyledContainer>
-          <div className='logo'>
-            <Link to="/">
-              <img className='logoImage' src={logo} />
-            </Link>
-          </div>
-          
-            <MenuBar/>
-      </StyledContainer>
-    
+    <StyledContainer>
+      <div className='logo'>
+        <Link to="/">
+          <img className='logoImage' src={logo} />
+        </Link>
+      </div>
+
+      <MenuBar />
+    </StyledContainer>
+
   )
 }
 

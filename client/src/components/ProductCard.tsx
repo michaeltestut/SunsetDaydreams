@@ -74,7 +74,7 @@ const StyledContainer = styled.div`
     &:hover{
         opacity:.8;
     }
-   }
+}
     .centered{
         text-align:center;
     }
