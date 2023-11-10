@@ -9,6 +9,7 @@ import { ApiError } from '../types/ApiError.ts'
 import { getError } from '../utils.ts'
 import LoadingBox from '../components/LoadingBox.tsx'
 import MessageBox from '../components/MessageBox.tsx'
+import ProductCard from '../components/ProductCard.tsx'
 
 type State ={
     products: Product[],
@@ -70,23 +71,16 @@ export default function HomePage() {
             ) : error ? (
                 <MessageBox variant='danger'>{error}</MessageBox>
             ) : (
-
-        <>
             <StyledContainer>
-                <Container className='mt-3'>
+                <Container className='mt-5'>
                     <Row>
                         {products.map((product) => (
-                            <Col className="spacing" key={product.url_slug} sm={6} md={4} lg={3}>
-                                <Link className='link' to ={`/product/${product.url_slug}`}>
-                                    <img className="product-img" src={product.image} />
-                                    <h5 className="margin">{product.name}</h5>
-                                </Link>
-                                <p className="margin">${product.price}</p>
+                            <Col key={product.url_slug} sm={6} md={4} lg={3}>
+                                <ProductCard product={product} />
                             </Col>))}
                     </Row>
                 </Container>
             </StyledContainer>
-        </>
         )
     )
 }
@@ -100,23 +94,7 @@ const StyledContainer = styled.div`
    .margin{
         margin-left:20%;
    }
-   
 
-   .product-img{
-        max-width: 400px;
-        width: 100%;
-   }
-   .spacing{
-    margin-right:100px;
-   }
-   
-   .link{
-    color:black;
-    &:hover{
-        opacity:.8;
-    }
-   }
-   
 
 
 `
