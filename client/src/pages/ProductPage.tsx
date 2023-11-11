@@ -1,7 +1,10 @@
+import MetaData from '../components/MetaData'
 
 
 export default function ProductPage() {
   return (
-    <div>ProductPage</div>
+    <div>
+     <MetaData title='ProductPage'/>
+    </div>
   )
 }

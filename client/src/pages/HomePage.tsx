@@ -1,7 +1,6 @@
 
 import styled from 'styled-components'
 import { Row, Col, Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
 import { Product } from '../types/Product.ts'
 import axios from 'axios'
 import React, { useReducer, useEffect } from 'react'
@@ -10,6 +9,7 @@ import { getError } from '../utils.ts'
 import LoadingBox from '../components/LoadingBox.tsx'
 import MessageBox from '../components/MessageBox.tsx'
 import ProductCard from '../components/ProductCard.tsx'
+import MetaData from '../components/MetaData.tsx'
 
 type State ={
     products: Product[],
@@ -72,6 +72,7 @@ export default function HomePage() {
                 <MessageBox variant='danger'>{error}</MessageBox>
             ) : (
             <StyledContainer>
+                <MetaData title='Sunset Daydreams' />
                 <Container className='mt-5'>
                     <Row>
                         {products.map((product) => (
