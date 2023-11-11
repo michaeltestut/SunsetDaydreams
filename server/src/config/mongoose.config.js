@@ -5,4 +5,4 @@ mongoose.connect('mongodb://localhost/sunsetdaydreamsdb', {
     useUnifiedTopology: true,
 })
     .then(() => console.log('Established connection to database'))
-    .catch(err => console.log('Something went wrong when connecting to database', err));
+    .catch((err) => console.log('Something went wrong when connecting to database', err));
