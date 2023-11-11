@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { DropdownMenu_Mens, DropdownMenu_Accessories, DropdownMenu_Womens } from './DropdownMenus'
@@ -32,7 +32,10 @@ const MenuBar: React.FC = () => {
     const handleMouseLeaveAccessories = () => {
         setIsAccessoriesDropdownVisible(false);
     }
+
+
     return (
+
         <div>
             <Container>
                 <Row className="menu" sm={6} md={4} lg={4}>

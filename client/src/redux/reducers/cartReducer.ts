@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit"
 import { Product } from "../../types/Product"
 
 const initialState = {
@@ -7,9 +7,10 @@ const initialState = {
 
 export const cartSlice = createSlice({
     name: "cart",
-    initialState: {value:initialState},
+    initialState: { value: initialState },
     reducers: {
 
     }
 })
 
+export default cartSlice.reducer;

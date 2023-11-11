@@ -5,7 +5,7 @@ import styled from 'styled-components'
 export default function AdminLogin() {
   return (
     <Container>
-      <h2>Admin Login</h2>
+      <h2>Admin</h2>
       <LoginForm />
     </Container>
   )

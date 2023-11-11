@@ -74,19 +74,24 @@ const Container = styled.div`
       gap: 2rem;
       .form {
         padding: 2rem;
-        background-color: #000000b0;
+        background-color: rgba(137,221,61, 0.5);
         width: 25vw;
         gap: 2rem;
-        color: white;
+        color:white;
+        border-radius: 10px;
+        h3{
+        text-shadow:2px 2px 2px #e63454;
+        }
         .container {
           gap: 2rem;
           input {
             padding: 0.5rem 1rem;
+            margin:5px;
             width: 15rem;
           }
           button {
             padding: 0.5rem 1rem;
-            background-color: #e50914;
+            background-color:#e63454;
             border: none;
             cursor: pointer;
             color: white;

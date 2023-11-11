@@ -18,7 +18,7 @@ import { HelmetProvider } from 'react-helmet-async'
 import { Provider } from "react-redux"
 import { store } from './redux/store.ts'
 import AdminLogin from './pages/Admin/AdminLogin.tsx'
-import AdminHome from './pages/Admin/AdminHome.tsx'
+import AdminDashboard from './pages/Admin/AdminDashboard.tsx'
 import { onAuthStateChanged } from 'firebase/auth';
 import { firebaseAuth } from './utils/firebase-config.ts'
 
@@ -32,8 +32,7 @@ const router = createBrowserRouter(
       <Route index={true} element={<HomePage />} />
       <Route path='product/:url_slug' element={<ProductPage />} />
       <Route path='admin/login' element={<AdminLogin />} />
-      <Route path='admin/home' element={<AdminHome />} />
-
+      <Route path='admin/home' element={<AdminDashboard />} />
     </Route>
   )
 );

@@ -4,7 +4,7 @@ import { firebaseAuth } from '../../utils/firebase-config';
 import { useNavigate } from 'react-router';
 
 
-export default function AdminHome() {
+export default function AdminDashboard() {
     function logOut() {
         signOut(firebaseAuth);
     };
