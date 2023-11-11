@@ -1,5 +1,5 @@
-import Header from "../components/Header"
-import errorImage from "../assets/images/zoinks-scooby-doo.gif"
+import Header from "../../components/Header"
+import errorImage from "../../assets/images/zoinks-scooby-doo.gif"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 
