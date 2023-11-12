@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import { DropdownMenu_Mens, DropdownMenu_Accessories, DropdownMenu_Womens } from './DropdownMenus'
 import 'react-bootstrap'
 import { Row } from 'react-bootstrap'
+import {HiOutlineShoppingCart, HiShoppingCart} from 'react-icons/hi'
 
 
 
 
 const MenuBar: React.FC = () => {
+    const navigate = useNavigate();
+
     const [isMensDropdownVisible, setIsMensDropdownVisible] = useState<boolean>(false);
     const handleMouseEnterMens = () => {
         setIsMensDropdownVisible(true);
@@ -33,6 +36,17 @@ const MenuBar: React.FC = () => {
         setIsAccessoriesDropdownVisible(false);
     }
 
+    const[isCartHovered, setIsCartHovered] = useState<boolean>(false)
+    const handleMouseEnterCart = () =>{
+        setIsCartHovered(true)
+    }
+    const handleMouseLeaveCart = () =>{
+        setIsCartHovered(false)
+    }
+
+    const handleCartClick =()=>{
+        navigate('/cart')
+    }
 
     return (
 
@@ -59,6 +73,13 @@ const MenuBar: React.FC = () => {
                         </StyledDropdown>
                     </div>
                 </Row>
+                <div className='cart' onMouseEnter={handleMouseEnterCart} onMouseLeave={handleMouseLeaveCart} onMouseUp={handleCartClick}>
+                    { isCartHovered ? 
+                        <HiShoppingCart /> :
+                        <HiOutlineShoppingCart />
+                    }
+                    <div className='cart-amount'>( 0 )</div>
+                </div>  
             </Container>
         </div>
 
@@ -70,7 +91,7 @@ export default MenuBar
 const Container = styled.div`
 height:100%;
 display: flex;
-justify-content:center;
+justify-content:space-between;
 background-color:rgba(255, 255, 255, 1);
 width:100vw;
 border-top: 4px solid #89dd3d;
@@ -90,6 +111,21 @@ margin-top:20px;
         font-weight:bold;
         text-shadow: 2px 2px 10px #e63454;
     }
+}
+
+.cart{
+    height:100%;
+    display:flex;
+    align-items:center;
+    margin-right:5%;
+    &:hover{
+        cursor:pointer;
+    }
+    .cart-amount{
+        font-family: "Arial Bold"
+    }
+ 
+
 }
 `
 const StyledDropdown = styled.div`

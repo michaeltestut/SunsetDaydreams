@@ -25,7 +25,7 @@ export default function LoginForm() {
         }
     };
     onAuthStateChanged(firebaseAuth, (currentUser) => {
-        if (currentUser) navigate("/admin/home");
+        if (currentUser) navigate("/admin/dashboard");
     });
 
     return (

@@ -7,7 +7,6 @@ import './index.css'
 import {
   createBrowserRouter,
   createRoutesFromElements,
-  redirect,
   Route,
   RouterProvider,
 } from "react-router-dom";
@@ -19,8 +18,7 @@ import { Provider } from "react-redux"
 import { store } from './redux/store.ts'
 import AdminLogin from './pages/Admin/AdminLogin.tsx'
 import AdminDashboard from './pages/Admin/AdminDashboard.tsx'
-import { onAuthStateChanged } from 'firebase/auth';
-import { firebaseAuth } from './utils/firebase-config.ts'
+import ShoppingCart from './pages/Client/ShoppingCart.tsx'
 
 
 axios.defaults.baseURL = process.env.NODE_ENV === 'development' ? 'http://localhost:8000' : '/'
@@ -31,8 +29,9 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />} errorElement={<ErrorPage />} >
       <Route index={true} element={<HomePage />} />
       <Route path='product/:url_slug' element={<ProductPage />} />
+      <Route path='/cart' element={<ShoppingCart/>} />
       <Route path='admin/login' element={<AdminLogin />} />
-      <Route path='admin/home' element={<AdminDashboard />} />
+      <Route path='admin/dashboard' element={<AdminDashboard />} />
     </Route>
   )
 );
