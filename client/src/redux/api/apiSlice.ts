@@ -3,9 +3,9 @@ import { Product } from '../../types/Product'
 
 export const apiSlice = createApi({
     reducerPath: 'api',
-    baseQuery: fetchBaseQuery({ baseUrl: '/api' }),
+    baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/api' }),
     endpoints: builder => ({
-      getProducts: builder.query<Product[] | undefined,void>({
+      getProducts: builder.query<Product[],void>({
         query: () => '/products'
       })
     })

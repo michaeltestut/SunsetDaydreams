@@ -9,18 +9,13 @@ import { useGetProductsQuery } from "../../redux/api/apiSlice.ts";
 export default function HomePage() {
   const result = useGetProductsQuery();
 
-  if(result.isUninitialized || result.isLoading){
-    return <p>loading... please wait</p>
-  }
-  if(result.isError){
-    return result.error
-  }
     return (
       <StyledContainer>
         <MetaData title="Sunset Daydreams" />
         <Container className="mt-5">
           <Row>
-            {result.data.map((product) => (
+            {result.error && <p>an error occured</p>}
+            {result.data && result.data.map((product) => (
               <Col key={product.url_slug} sm={6} md={4} lg={3}>
                 <ProductCard product={product} />
               </Col>
