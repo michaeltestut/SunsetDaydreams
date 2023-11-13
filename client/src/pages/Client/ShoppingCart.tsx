@@ -1,7 +1,5 @@
-import React from 'react'
+import React from "react";
 
 export default function ShoppingCart() {
-  return (
-    <div>ShoppingCart</div>
-  )
+  return <div>ShoppingCart</div>;
 }

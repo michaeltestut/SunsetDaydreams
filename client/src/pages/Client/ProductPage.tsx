@@ -1,10 +1,7 @@
-import MetaData from '../../components/MetaData'
-
+import React from "react";
 
 export default function ProductPage() {
-  return (
-    <div>
-      <MetaData title='ProductPage' />
-    </div>
-  )
+  return <div>ProductPage</div>;
 }
+
+

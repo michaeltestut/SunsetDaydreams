@@ -20,6 +20,9 @@ app.get('/', (req, res) => {
 app.get('/api/products', (req, res) => {
     res.json(data_1.sampleProducts);
 });
+// app.get('/api/products',(req:Request, res:Response)=>{
+//     res.json(sampleProducts.find((x)=>x.url_slug===req.params.url_slug))
+// })
 const port = process.env.PORT || 8000;
 app.listen(port, () => {
     console.log(`App listening on port ${port}`);
