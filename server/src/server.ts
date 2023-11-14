@@ -22,9 +22,9 @@ app.get('/api/products', (req: Request, res: Response) => {
     res.json(sampleProducts)
 });
 
-// app.get('/api/products',(req:Request, res:Response)=>{
-//     res.json(sampleProducts.find((x)=>x.url_slug===req.params.url_slug))
-// })
+app.get(`/api/products/:url_slug`,(req:Request, res:Response)=>{
+    res.json(sampleProducts.find((x)=>x.url_slug===req.params.url_slug))
+})
 
 const port = process.env.PORT || 8000;
 

@@ -7,8 +7,12 @@ export const apiSlice = createApi({
     endpoints: builder => ({
       getProducts: builder.query<Product[],void>({
         query: () => '/products'
+      }),
+      getOneProduct: builder.query<Product,{url_slug: string }>({
+        query:(url_slug)=> `/products/${url_slug}`
+
       })
     })
   })
 
-  export const { useGetProductsQuery } = apiSlice
+  export const { useGetProductsQuery, useGetOneProductQuery } = apiSlice
