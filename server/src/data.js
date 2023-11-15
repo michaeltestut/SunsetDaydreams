@@ -23,7 +23,7 @@ exports.sampleProducts = [
             mainCategory: 'Mens',
             subCategories: ['Shirts']
         },
-        countInStock: 100,
+        countInStock: 0,
         description: 'really cool old shirt'
     }
 ];

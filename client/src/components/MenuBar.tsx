@@ -8,7 +8,7 @@ import {
 } from "./DropdownMenus";
 import "react-bootstrap";
 import { Row } from "react-bootstrap";
-import { HiOutlineShoppingCart, HiShoppingCart } from "react-icons/hi";
+import { BsBag, BsBagFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
 
 const MenuBar: React.FC = () => {
@@ -104,13 +104,13 @@ const MenuBar: React.FC = () => {
             <IconContext.Provider
               value={{ size: "1.5em" }}
             >
-              <HiShoppingCart class="cartimage" />
+              <BsBagFill class="cartimage" />
             </IconContext.Provider>
           ) : (
             <IconContext.Provider
               value={{ size: "1.5em" }}
             >
-              <HiOutlineShoppingCart />
+              <BsBag />
             </IconContext.Provider>
           )}
           <div className="cart-amount">( 0 )</div>

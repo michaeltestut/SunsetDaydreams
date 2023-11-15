@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function ProductCard({ product }: { product: Product }) {
   const [isHovered, setIsHovered] = useState<boolean>(false);
-
+ 
   const handleMouseEnter = () => {
     setIsHovered(true);
   };
@@ -46,7 +46,7 @@ export default function ProductCard({ product }: { product: Product }) {
                 Out of Stock
               </Button>
             ) : (
-              <Button variant="outline-dark">Add to cart</Button>
+              <Button variant="outline-dark">Add to Bag</Button>
             )}
           </div>
         </div>
