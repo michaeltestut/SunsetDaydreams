@@ -7,6 +7,7 @@ import { getError } from "../../utils";
 import { ApiError } from "../../types/ApiError";
 import styled from "styled-components";
 import { Button } from "react-bootstrap";
+import MetaData from "../../components/MetaData";
 
 export default function ProductPage() {
   const { url_slug } = useParams();
@@ -28,7 +29,9 @@ export default function ProductPage() {
       )}
       {!product && <MessageBox variant="danger">Product Not Found</MessageBox>}
       {product && (
+        
         <StyledContainer>
+          <MetaData title={product!.name} />
           <div className="images">
             {isMainImage === "" ? (
               <img className="main-image" src={product.images[0]} />

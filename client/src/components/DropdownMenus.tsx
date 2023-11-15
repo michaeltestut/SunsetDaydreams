@@ -47,6 +47,7 @@ const Container = styled.div`
   width: 100%;
   text-align: center;
   .link {
+    margin-top:1em;
     color: white;
     opacity: 80%;
     &:hover {
