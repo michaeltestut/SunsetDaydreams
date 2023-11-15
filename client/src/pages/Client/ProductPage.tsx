@@ -11,12 +11,11 @@ import { Button } from "react-bootstrap";
 export default function ProductPage() {
   const { url_slug } = useParams();
 
-  //@ts-ignore
   const {
     data: product,
     isLoading,
-    isSuccess,
     error,
+    //@ts-ignore
   } = useGetOneProductQuery(url_slug);
 
   const [isMainImage, setIsMainImage] = useState<string>("");

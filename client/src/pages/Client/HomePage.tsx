@@ -4,10 +4,16 @@ import ProductCard from "../../components/ProductCard.tsx";
 import MetaData from "../../components/MetaData.tsx";
 import { useGetProductsQuery } from "../../redux/api/apiSlice.ts";
 import ErrorBox from "../../components/ErrorBox.tsx";
+import { useEffect } from "react";
 
 
 
 export default function HomePage() {
+  
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
+
   const result = useGetProductsQuery();
 
     return (

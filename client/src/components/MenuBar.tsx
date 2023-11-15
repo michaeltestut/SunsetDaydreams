@@ -54,7 +54,7 @@ const MenuBar: React.FC = () => {
   };
 
   return (
-    <div>
+    <Border>
       <Container>
         <Row className="menu" sm={6} md={4} lg={4}>
           <Link to="/" className="headerLink">
@@ -116,11 +116,19 @@ const MenuBar: React.FC = () => {
           <div className="cart-amount">( 0 )</div>
         </div>
       </Container>
-    </div>
+    </Border>
   );
 };
 
 export default MenuBar;
+
+const Border = styled.div`
+display:flex;
+  align-items:center;
+  justify-content: center;
+  background: linear-gradient(to right, #89dd3d, #346841);
+  padding: 4px;
+`
 
 const Container = styled.div`
   display: flex;
@@ -128,9 +136,9 @@ const Container = styled.div`
   align-items:center;
   background-color: rgba(255, 255, 255, 1);
   width: 100vw;
-  border-top: 4px solid #89dd3d;
-  border-bottom: 4px solid #89dd3d;
-  margin-top: 20px;
+  // border-top: 4px solid #89dd3d;
+  // border-bottom: 4px solid #89dd3d;
+  // margin-top: 20px;
   .menu {
     height: 3em;
     display: flex;
@@ -155,7 +163,10 @@ const Container = styled.div`
       cursor: pointer;
     }
     .cart-amount {
-      font-family: "Arial Bold";
+      font-family: "Arial";
+      font-weight: 600;
+      
+      padding:5px;
     }
   }
 `;
