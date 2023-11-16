@@ -1,9 +1,16 @@
+import { Form, Button } from 'react-bootstrap'
 
-
-function AddProduct() {
+export default function AddProduct() {
   return (
-    <div>AddProduct</div>
+    <div>
+      <h4> Add New Product</h4>
+      <Form>
+        
+        <Button variant="primary" type="submit">
+          Create Product
+        </Button>
+      </Form>
+
+    </div>
   )
 }
-
-export default AddProduct
