@@ -6,6 +6,11 @@ const initialState = {
   cart: [] as Product[],
 };
 
+//Actions
+
+//Reducer
+
+//Slice
 export const cartSlice = createSlice({
   name: "cart",
   initialState: { value: initialState },

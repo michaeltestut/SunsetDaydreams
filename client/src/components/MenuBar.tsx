@@ -11,6 +11,7 @@ import { Row } from "react-bootstrap";
 import { BsBag, BsBagFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
 
+
 const MenuBar: React.FC = () => {
   const navigate = useNavigate();
 
@@ -115,6 +116,7 @@ const MenuBar: React.FC = () => {
           )}
           <div className="cart-amount">( 0 )</div>
         </div>
+
       </Container>
     </Border>
   );
