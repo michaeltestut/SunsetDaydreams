@@ -19,6 +19,7 @@ import { store } from "./redux/store.ts";
 import AdminLogin from "./pages/Admin/AdminLogin.tsx";
 import AdminDashboard from "./pages/Admin/AdminDashboard.tsx";
 import ShoppingCart from "./pages/Client/ShoppingCart.tsx";
+import AddProduct from "./pages/Admin/AddProduct.tsx";
 
 axios.defaults.baseURL =
   process.env.NODE_ENV === "development" ? "http://localhost:8000" : "/";
@@ -31,6 +32,7 @@ const router = createBrowserRouter(
       <Route path="/cart" element={<ShoppingCart />} />
       <Route path="admin/login" element={<AdminLogin />} />
       <Route path="admin/dashboard" element={<AdminDashboard />} />    
+      <Route path="admin/add-product" element={<AddProduct />} />    
     </Route>
   )
 );
