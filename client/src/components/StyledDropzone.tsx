@@ -4,7 +4,7 @@ import {useDropzone} from 'react-dropzone';
 import styled from 'styled-components';
 
 
-const getColor = (props) => {
+const getColor = (props:any) => {
   if (props.isDragAccept) {
       return '#00e676';
   }
@@ -18,7 +18,7 @@ const getColor = (props) => {
 }
 
 
-export default function StyledDropzone(props) {
+export default function StyledDropzone(props:any) {
   const {
     getRootProps,
     getInputProps,
@@ -30,7 +30,7 @@ export default function StyledDropzone(props) {
   return (
     <div className="container">
       <Container {...getRootProps({isFocused, isDragAccept, isDragReject})}>
-        <input {...getInputProps()} />
+        <input {...getInputProps()}  />
         <h5>Drag and Drop Photo Here</h5>
         <p>or</p>
         <Button>Select Photo</Button>
@@ -44,7 +44,7 @@ const Container = styled.div`
   h5{
     color:grey;
   }
-  cursor:pointer;
+  cursor:default;
  
   flex: 1;
   display: flex;

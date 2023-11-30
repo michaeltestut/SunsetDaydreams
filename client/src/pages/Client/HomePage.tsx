@@ -2,10 +2,12 @@ import styled, { ThemeProvider } from "styled-components";
 import { Row, Col, Container } from "react-bootstrap";
 import ProductCard from "../../components/ProductCard.tsx";
 import MetaData from "../../components/MetaData.tsx";
-import { useGetProductsQuery } from "../../redux/api/apiSlice.ts";
 import ErrorBox from "../../components/ErrorBox.tsx";
 import { useEffect } from "react";
 import { backgroundColor, buttonColor, textColor, buttonHover} from "../../components/Theme.tsx";
+// import { useGetOneProductQuery, useGetProductsQuery } from "../../redux/api/apiSlice.ts";
+import { useGetProductsQuery } from "../../redux/product/productSlice.ts";
+import LoadingBox from "../../components/LoadingBox.tsx";
 
 
 
@@ -19,6 +21,7 @@ export default function HomePage() {
 
     return (
       <ThemeProvider theme={{theme:'light'}}>
+        {result.isLoading && <LoadingBox/>}
         <StyledContainer>
           <MetaData title="Sunset Daydreams" />
           <Container className="mt-5">

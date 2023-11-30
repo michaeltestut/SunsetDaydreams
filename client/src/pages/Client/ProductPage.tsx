@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useGetOneProductQuery } from "../../redux/api/apiSlice";
+import { useGetOneProductQuery } from "../../redux/product/productSlice.ts";
 import { useParams } from "react-router";
 import LoadingBox from "../../components/LoadingBox";
 import MessageBox from "../../components/MessageBox";

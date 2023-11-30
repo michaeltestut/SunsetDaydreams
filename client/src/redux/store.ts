@@ -2,7 +2,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import pageReducer from "./page/pageSlice";
 import cartReducer from "./cart/cartSlice";
 import orderReducer from "./order/orderSlice";
-import productReducer from "./product/productSlice";
 import { apiSlice } from "./api/apiSlice";
 
 export const store = configureStore({
@@ -10,12 +9,13 @@ export const store = configureStore({
     page: pageReducer,
     cart: cartReducer,
     order: orderReducer,
-    product: productReducer,
     [apiSlice.reducerPath]: apiSlice.reducer
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(apiSlice.middleware)
+    getDefaultMiddleware().concat(apiSlice.middleware),
+  devTools:true,
 });
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
+
 

@@ -7,6 +7,8 @@ import styled from 'styled-components';
 
 
 export default function AddProduct() {
+  const [preview, setPreview] = useState<string | ArrayBuffer | null>(null);
+
   const onDrop = useCallback((acceptedFiles: Array<File>) => {
     const file = new FileReader;
 
@@ -17,35 +19,37 @@ export default function AddProduct() {
     file.readAsDataURL(acceptedFiles[0])
   }, [])
 
-  const { acceptedFiles, getRootProps, getInputProps, isDragActive } = useDropzone({
+  const { acceptedFiles } = useDropzone({
     onDrop,
-    accept: {
-      'image/jpeg': [],
-      'image/png': []
-    }
   });
 
-  const [preview, setPreview] = useState<string | ArrayBuffer | null>(null);
+ 
 
 
   async function handleSubmit(e:React.SyntheticEvent){
     e.preventDefault();
 
-    if ( typeof acceptedFiles[0] === 'undefined' ) return;
+    if ( typeof acceptedFiles[0] === 'undefined' ) {
+      console.log("error")
+      // return;
+    }
 
     const formData = new FormData();
 
     formData.append('file', acceptedFiles[0]);
-    formData.append('upload_preset', '<Your Upload Preset>');
+    formData.append('upload_preset', 'product_images');
     formData.append('api_key', import.meta.env.VITE_CLOUDINARY_API_KEY);
 
-    const results =await fetch('https://api.cloudinary.com/v1_1/<Your Cloud Name>/image/upload', {
+    const results =await fetch('https://api.cloudinary.com/v1_1/dz3mgdtgg/image/upload', {
       method: 'POST',
       body: formData
     }).then(r => r.json());
 
     console.log('results', results);
+    console.log(formData)
   }
+
+
 
 
   return (
@@ -63,10 +67,15 @@ export default function AddProduct() {
           <Form.Group>
             <Form.Label>Image</Form.Label>
               <StyledDropzone/>
+              {preview && (
+            <div>
+              <img src={preview as string} alt="Upload preview" />
+            </div>
+          )}
           </Form.Group>
           <Form.Group>
             <Form.Label>Description</Form.Label>
-            <Form.Control className='description' type='textarea' as='textarea' placeholder='Enter Description'/>
+            <Form.Control type='textarea' as='textarea' placeholder='Enter Description'/>
           </Form.Group>
           <Form.Group>
             <Form.Label>In Stock</Form.Label>
