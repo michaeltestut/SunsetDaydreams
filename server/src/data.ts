@@ -11,7 +11,7 @@ export const sampleProducts: Product[] = [
             mainCategory: 'Mens',
             subCategories: ['Shirts']
         },
-        countInStock: 100,
+        countInStock: 10,
         description: 'really cool new shirt'
 
     },

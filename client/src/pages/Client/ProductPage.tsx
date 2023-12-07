@@ -1,16 +1,22 @@
 import React, { useState } from "react";
 import { useGetOneProductQuery } from "../../redux/product/productSlice.ts";
-import { useParams } from "react-router";
+import { useParams, useNavigate } from "react-router";
 import LoadingBox from "../../components/LoadingBox";
 import MessageBox from "../../components/MessageBox";
 import { getError } from "../../utils";
 import { ApiError } from "../../types/ApiError";
 import styled from "styled-components";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import MetaData from "../../components/MetaData";
+import { addToCart } from "../../redux/cart/cartSlice.ts";
+import { useAppDispatch } from "../../redux/hooks.ts";
+
+
 
 export default function ProductPage() {
   const { url_slug } = useParams();
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const {
     data: product,
@@ -19,7 +25,14 @@ export default function ProductPage() {
     //@ts-ignore
   } = useGetOneProductQuery(url_slug);
 
-  const [isMainImage, setIsMainImage] = useState<string>("");
+  const [mainImage, setMainImage] = useState<string>("");
+  const [qty, setQty] = useState<Number>(1)
+
+  const addToCartHandler = () => {
+    dispatch(addToCart({ ...product, qty }));
+    navigate('/cart');
+    
+  }
 
   return (
     <div>
@@ -29,18 +42,18 @@ export default function ProductPage() {
       )}
       {!product && <MessageBox variant="danger">Product Not Found</MessageBox>}
       {product && (
-        
+
         <StyledContainer>
           <MetaData title={product!.name} />
           <div className="images">
-            {isMainImage === "" ? (
+            {mainImage === "" ? (
               <img className="main-image" src={product.images[0]} />
             ) : (
-              <img className="main-image" src={isMainImage} />
+              <img className="main-image" src={mainImage} />
             )}
             <div className="secondary-images">
               {product && product.images.map((image) => (
-                <div onMouseEnter={()=>setIsMainImage(image)}>
+                <div onMouseEnter={() => setMainImage(image)}>
                   <img className="secondary" src={image} />
                 </div>
               ))}
@@ -53,9 +66,25 @@ export default function ProductPage() {
               <p className="description">{product.description}</p>
             </div>
             {product.countInStock > 0 ? (
-              <Button variant="outline-dark" className="btn">
-                Add to Bag
-              </Button>
+              <>
+                <Form.Group>
+                  <Form.Label>Select Quantity</Form.Label>
+                  <Form.Control
+                    as="select"
+                    value={Number(qty)}
+                    onChange={(e) => setQty(Number(e.target.value))}>
+                    {[...Array(product.countInStock).keys()].map((x) => (
+                      <option key={x + 1} value={x + 1}>{x + 1}</option>
+                    ))}
+                  </Form.Control>
+                </Form.Group>
+                <Button
+                  variant="outline-dark"
+                  className="btn"
+                  onClick={addToCartHandler}>
+                  Add to Bag
+                </Button>
+              </>
             ) : (
               <Button variant="outline-dark" className="btn" disabled>
                 Out of Stock
