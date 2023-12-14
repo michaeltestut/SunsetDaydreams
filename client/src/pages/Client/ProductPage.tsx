@@ -31,7 +31,7 @@ export default function ProductPage() {
   const addToCartHandler = () => {
     dispatch(addToCart({ ...product, qty }));
     navigate('/cart');
-    
+
   }
 
   return (

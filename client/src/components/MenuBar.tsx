@@ -7,13 +7,18 @@ import {
   DropdownMenu_Womens,
 } from "./DropdownMenus";
 import "react-bootstrap";
-import { Row } from "react-bootstrap";
+import { Badge, Row } from "react-bootstrap";
 import { BsBag, BsBagFill } from "react-icons/bs";
 import { IconContext } from "react-icons";
+import { useAppSelector } from "../redux/hooks";
 
 
 const MenuBar: React.FC = () => {
+
+  const { cartItems } = useAppSelector((state)=>state.cart)
   const navigate = useNavigate();
+
+
 
   const [isMensDropdownVisible, setIsMensDropdownVisible] =
     useState<boolean>(false);
@@ -114,7 +119,13 @@ const MenuBar: React.FC = () => {
               <BsBag />
             </IconContext.Provider>
           )}
-          <div className="cart-amount">( 0 )</div>
+          {cartItems.length > 0 &&
+            <div className="cart-amount">
+              <Badge pill bg='danger'>
+                {cartItems.reduce((a: any, c: any) => a + c.qty, 0)}
+              </Badge>
+            </div>
+          }
         </div>
 
       </Container>
