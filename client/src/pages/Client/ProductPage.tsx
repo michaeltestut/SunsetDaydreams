@@ -44,7 +44,7 @@ export default function ProductPage() {
       {product && (
 
         <StyledContainer>
-          <MetaData title={product!.name} />
+          <MetaData title={`${product!.name} | Sunset Daydreams`} />
           <div className="images">
             {mainImage === "" ? (
               <img className="main-image" src={product.images[0]} />

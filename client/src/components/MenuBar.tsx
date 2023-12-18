@@ -92,7 +92,7 @@ const MenuBar: React.FC = () => {
           )}
           {cartItems.length > 0 &&
             <div className="cart-amount">
-              <Badge pill bg='danger'>
+              <Badge pill bg='danger' className="pill">
                 {cartItems.reduce((a: any, c: any) => a + c.qty, 0)}
               </Badge>
             </div>
@@ -127,6 +127,10 @@ const Container = styled.div`
 
   .spacing{
     margin-right:5em;
+  }
+
+  .pill{
+    margin-left:-.25em;
   }
 
   .menu {

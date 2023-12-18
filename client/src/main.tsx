@@ -20,6 +20,8 @@ import AdminLogin from "./pages/Admin/AdminLogin.tsx";
 import AdminDashboard from "./pages/Admin/AdminDashboard.tsx";
 import ShoppingCart from "./pages/Client/ShoppingCart.tsx";
 import AddProduct from "./pages/Admin/AddProduct.tsx";
+import Checkout from "./pages/Client/Checkout.tsx";
+
 
 axios.defaults.baseURL =
   process.env.NODE_ENV === "development" ? "http://localhost:8000" : "/";
@@ -29,10 +31,11 @@ const router = createBrowserRouter(
     <Route path="/" element={<App />} errorElement={<ErrorPage />}>
       <Route index={true} element={<HomePage />} />
       <Route path="product/:url_slug" element={<ProductPage />} />
-      <Route path="/cart" element={<ShoppingCart />} />
+      <Route path="cart" element={<ShoppingCart />} />
       <Route path="admin/login" element={<AdminLogin />} />
-      <Route path="admin/dashboard" element={<AdminDashboard />} />    
-      <Route path="admin/add-product" element={<AddProduct />} />    
+      <Route path="admin/dashboard" element={<AdminDashboard />} />
+      <Route path="admin/add-product" element={<AddProduct />} />
+      <Route path="checkout" element={<Checkout />} />
     </Route>
   )
 );

@@ -1,6 +1,6 @@
 import React from "react";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ListGroup, Col, Row, Image, Form, Button, Card } from "react-bootstrap";
 import { FaTrash } from "react-icons/fa"
 import styled from "styled-components";
@@ -10,6 +10,7 @@ import { addToCart, removeFromCart } from "../../redux/cart/cartSlice";
 
 export default function ShoppingCart() {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const cart = useAppSelector((state) => state.cart);
   const { cartItems } = cart;
 
@@ -18,8 +19,12 @@ export default function ShoppingCart() {
   const handleQuantityChange = async (product: any, qty: number) => {
     dispatch(addToCart({ ...product, qty }))
   }
-  const handleRemoveFromCart = async (id:any) => {
+  const handleRemoveFromCart = async (id: any) => {
     dispatch(removeFromCart(id))
+  }
+
+  const handleCheckoutClick = () => {
+    navigate("/checkout")
   }
 
   return (
@@ -54,7 +59,7 @@ export default function ShoppingCart() {
                     </Form.Control>
                   </Col>
                   <Col md={2}>
-                    <Button type='button' variant='light' onClick={()=>handleRemoveFromCart(item._id)}><FaTrash /></Button>
+                    <Button type='button' variant='light' onClick={() => handleRemoveFromCart(item._id)}><FaTrash /></Button>
                   </Col>
                 </Row>
               ))}
@@ -67,16 +72,21 @@ export default function ShoppingCart() {
         <Col md={4}>
           <Card>
             <ListGroup variant="flush">
-              <ListGroup.Item>
-                <h4>Subtotal: ${cart.itemsPrice}</h4>
-                <h4>Tax: ${cart.taxPrice}</h4>
-                <h4>Shipping: ${cart.shippingPrice}</h4>
-              </ListGroup.Item>
-              <ListGroup.Item>
-                <Button type='button' disabled={cartItems.length === 0}>
-                  Proceed to checkout
-                </Button>
-              </ListGroup.Item>
+              {
+                cartItems.length !== 0 &&
+                <>
+                  <ListGroup.Item>
+                    <h4>Subtotal: ${cart.itemsPrice}</h4>
+                    <h4>Tax: ${cart.taxPrice}</h4>
+                    <h4>Shipping: ${cart.shippingPrice}</h4>
+                  </ListGroup.Item>
+                  <ListGroup.Item>
+                    <Button type='button' onClick={handleCheckoutClick}>
+                      Proceed to checkout
+                    </Button>
+                  </ListGroup.Item>
+                </>
+              }
             </ListGroup>
           </Card>
         </Col>
