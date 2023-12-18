@@ -5,7 +5,7 @@ import { ListGroup, Col, Row, Image, Form, Button, Card } from "react-bootstrap"
 import { FaTrash } from "react-icons/fa"
 import styled from "styled-components";
 import MetaData from "../../components/MetaData";
-import { addToCart } from "../../redux/cart/cartSlice";
+import { addToCart, removeFromCart } from "../../redux/cart/cartSlice";
 
 
 export default function ShoppingCart() {
@@ -17,6 +17,9 @@ export default function ShoppingCart() {
 
   const handleQuantityChange = async (product: any, qty: number) => {
     dispatch(addToCart({ ...product, qty }))
+  }
+  const handleRemoveFromCart = async (id:any) => {
+    dispatch(removeFromCart(id))
   }
 
   return (
@@ -51,7 +54,7 @@ export default function ShoppingCart() {
                     </Form.Control>
                   </Col>
                   <Col md={2}>
-                    <Button type='button' variant='light'><FaTrash /></Button>
+                    <Button type='button' variant='light' onClick={()=>handleRemoveFromCart(item._id)}><FaTrash /></Button>
                   </Col>
                 </Row>
               ))}
