@@ -60,7 +60,13 @@ const MenuBar: React.FC = () => {
 
 
               <DropdownButton title="Accessories" variant="light" className="spacing">
-
+                <Dropdown.Item>All Accessories</Dropdown.Item>
+                <Dropdown.Item>Hats</Dropdown.Item>
+                <Dropdown.Item>Beach Accessories</Dropdown.Item>
+                <Dropdown.Item>Mugs</Dropdown.Item>
+                <Dropdown.Item>Wall Art</Dropdown.Item>
+                <Dropdown.Item>Giftcards</Dropdown.Item>
+                <Dropdown.Item>Other</Dropdown.Item>
               </DropdownButton>
             </ButtonGroup>
           </Dropdown>
