@@ -19,6 +19,32 @@ const Checkout: React.FC = () => {
               <Form.Label>Last Name</Form.Label>
               <Form.Control type='text' />
             </Form.Group>
+            <Form.Group>
+              <Form.Label>Street Address</Form.Label>
+              <Form.Control type='text' />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>City</Form.Label>
+              <Form.Control type='text' />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>State</Form.Label>
+              <Form.Control type='text' />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Zip Code</Form.Label>
+              <Form.Control type='text' />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Phone</Form.Label>
+              <Form.Control type='text' />
+            </Form.Group>
+            <Form.Group>
+              <Form.Label>Email</Form.Label>
+              <Form.Control type='text' />
+            </Form.Group>
+
+
           </Form>
         </Col>
       </Row>
@@ -30,5 +56,7 @@ export default Checkout
 
 
 const Container = styled.div`
-
+  h2{
+    text-align: center;
+  }
 `
