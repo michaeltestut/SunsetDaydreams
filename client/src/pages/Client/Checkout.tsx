@@ -1,7 +1,7 @@
 import React from 'react'
 import { Form, Row, Col } from 'react-bootstrap'
 import styled from 'styled-components'
-
+import SelectUSState from 'react-select-us-states';
 
 const Checkout: React.FC = () => {
   return (
@@ -24,17 +24,23 @@ const Checkout: React.FC = () => {
               <Form.Control type='text' />
             </Form.Group>
             <Form.Group>
-              <Form.Label>City</Form.Label>
+              <Form.Label>Street Address 2 (optional) </Form.Label>
               <Form.Control type='text' />
             </Form.Group>
-            <Form.Group>
-              <Form.Label>State</Form.Label>
-              <Form.Control type='text' />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Zip Code</Form.Label>
-              <Form.Control type='text' />
-            </Form.Group>
+            <div className='city-state-zip'>
+              <Form.Group>
+                <Form.Label>City</Form.Label>
+                <Form.Control type='text' />
+              </Form.Group>
+              <Form.Group className='state'>
+                <Form.Label>State</Form.Label>
+                <SelectUSState />
+              </Form.Group>
+              <Form.Group className='zip'>
+                <Form.Label>Zip Code</Form.Label>
+                <Form.Control type='text' />
+              </Form.Group>
+            </div>
             <Form.Group>
               <Form.Label>Phone</Form.Label>
               <Form.Control type='text' />
@@ -43,7 +49,6 @@ const Checkout: React.FC = () => {
               <Form.Label>Email</Form.Label>
               <Form.Control type='text' />
             </Form.Group>
-
 
           </Form>
         </Col>
@@ -58,5 +63,21 @@ export default Checkout
 const Container = styled.div`
   h2{
     text-align: center;
+  }
+
+  .state{
+    display:flex;
+    flex-direction:column;
+    padding-bottom:5px;
+    margin-left:10px;
+  }
+
+  .zip{
+    margin-left:10px;
+  }
+
+  .city-state-zip{
+    display:flex;
+    flex-direction:row;
   }
 `
