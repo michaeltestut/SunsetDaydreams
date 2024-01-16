@@ -7,13 +7,15 @@ import { useAppSelector } from '../../redux/hooks';
 
 const Checkout: React.FC = () => {
   const cart = useAppSelector((state) => state.cart);
-
+  const handleContinueToPayment = () => {
+    console.log("continue to payment")
+  }
   return (
     <Container>
       <h2>Checkout</h2>
       <Row>
-        <Col md={6}>
-          <h3>Shipping Info</h3>
+        <Col md={6} className="column">
+          <h3 className="label">Shipping Info</h3>
           <Form>
             <Form.Group>
               <Form.Label>First Name</Form.Label>
@@ -53,7 +55,7 @@ const Checkout: React.FC = () => {
               <Form.Label>Email</Form.Label>
               <Form.Control type='text' />
             </Form.Group>
-            <Button variant='outline-dark'>
+            <Button variant='outline-dark' onClick={handleContinueToPayment}>
               Continue to Payment
             </Button>
           </Form>
@@ -110,5 +112,15 @@ const Container = styled.div`
   .total{
     border-top:1px solid grey;
     border-bottom:1px solid grey
+  }
+
+  .label{
+    background-color:lightgrey;
+    padding:3px;
+  }
+
+  .column{
+    padding:0 40px;
+    border-right:1px solid grey;
   }
 `
