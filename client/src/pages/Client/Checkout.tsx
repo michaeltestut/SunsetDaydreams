@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Row, Col } from 'react-bootstrap'
+import { Form, Row, Col, Button } from 'react-bootstrap'
 import styled from 'styled-components'
 import SelectUSState from 'react-select-us-states';
 import { useAppSelector } from '../../redux/hooks';
@@ -53,7 +53,9 @@ const Checkout: React.FC = () => {
               <Form.Label>Email</Form.Label>
               <Form.Control type='text' />
             </Form.Group>
-
+            <Button variant='outline-dark'>
+              Continue to Payment
+            </Button>
           </Form>
         </Col>
 
