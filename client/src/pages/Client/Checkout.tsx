@@ -2,8 +2,12 @@ import React from 'react'
 import { Form, Row, Col } from 'react-bootstrap'
 import styled from 'styled-components'
 import SelectUSState from 'react-select-us-states';
+import { useAppSelector } from '../../redux/hooks';
+
 
 const Checkout: React.FC = () => {
+  const cart = useAppSelector((state) => state.cart);
+
   return (
     <Container>
       <h2>Checkout</h2>
@@ -52,6 +56,26 @@ const Checkout: React.FC = () => {
 
           </Form>
         </Col>
+
+        <Col md={6}>
+          <div>
+            <h3>
+              Order Summary
+            </h3>
+          </div>
+          <div>
+            Subtotal: ${cart.itemsPrice}
+          </div>
+          <div>
+            Shipping Cost: ${cart.shippingPrice}
+          </div>
+          <div>
+            Sales Tax: ${cart.taxPrice}
+          </div>
+          <div className='total'>
+            Total: ${cart.totalPrice}
+          </div>
+        </Col>
       </Row>
     </Container>
   )
@@ -79,5 +103,10 @@ const Container = styled.div`
   .city-state-zip{
     display:flex;
     flex-direction:row;
+  }
+
+  .total{
+    border-top:1px solid grey;
+    border-bottom:1px solid grey
   }
 `
