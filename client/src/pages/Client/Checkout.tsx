@@ -1,64 +1,37 @@
-import React from 'react'
-import { Form, Row, Col, Button } from 'react-bootstrap'
+import React, { useState } from 'react'
+import { Row, Col, Button } from 'react-bootstrap'
 import styled from 'styled-components'
-import SelectUSState from 'react-select-us-states';
 import { useAppSelector } from '../../redux/hooks';
+import ShippingForm from '../../components/ShippingForm';
 
 
 const Checkout: React.FC = () => {
   const cart = useAppSelector((state) => state.cart);
-  const handleContinueToPayment = () => {
-    console.log("continue to payment")
+
+  const [shippingHidden, setShippingHidden] = useState<boolean>(false)
+
+  const handleButtonClick = () => {
+    shippingHidden ? setShippingHidden(false) : setShippingHidden(true);
+    console.log(shippingHidden)
   }
   return (
     <Container>
       <h2>Checkout</h2>
       <Row>
         <Col md={6} className="column">
-          <h3 className="label">Shipping Info</h3>
-          <Form>
-            <Form.Group>
-              <Form.Label>First Name</Form.Label>
-              <Form.Control type='text' />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Last Name</Form.Label>
-              <Form.Control type='text' />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Street Address</Form.Label>
-              <Form.Control type='text' />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Street Address 2 (optional) </Form.Label>
-              <Form.Control type='text' />
-            </Form.Group>
-            <div className='city-state-zip'>
-              <Form.Group>
-                <Form.Label>City</Form.Label>
-                <Form.Control type='text' />
-              </Form.Group>
-              <Form.Group className='state'>
-                <Form.Label>State</Form.Label>
-                <SelectUSState />
-              </Form.Group>
-              <Form.Group className='zip'>
-                <Form.Label>Zip Code</Form.Label>
-                <Form.Control type='text' />
-              </Form.Group>
-            </div>
-            <Form.Group>
-              <Form.Label>Phone</Form.Label>
-              <Form.Control type='text' />
-            </Form.Group>
-            <Form.Group>
-              <Form.Label>Email</Form.Label>
-              <Form.Control type='text' />
-            </Form.Group>
-            <Button variant='outline-dark' onClick={handleContinueToPayment}>
-              Continue to Payment
-            </Button>
-          </Form>
+          {!shippingHidden ?
+            <>
+              <h3 className="label">Step 1 - Shipping Info</h3>
+              <ShippingForm />
+              <Button onClick={handleButtonClick}>Continue to Payment</Button>
+            </>
+            : 
+            <>
+              <h3 className='label'>Step 2 - Payment Info</h3>
+              <h3>This will be the payment area</h3>
+              <Button onClick={handleButtonClick}>Edit Shipping Info</Button>
+            </>
+          }
         </Col>
 
         <Col md={6}>
