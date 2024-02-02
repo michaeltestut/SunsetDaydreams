@@ -1,9 +1,21 @@
+import { useState } from "react";
 import { Button, Form } from "react-bootstrap"
 import SelectUSState from 'react-select-us-states';
 
 const ShippingForm: React.FC = () => {
+    const [name, setName] = useState('')
+    const [street, setStreet] = useState('')
+    const [city, setCity] = useState('')
+    const [state, setState] = useState('')
+    const [zipCode, setZipCode] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
+
+    const handleSubmit = () => {
+        console.log("Submitted")
+    }
     return (
-        <Form>
+        <Form onSubmit={handleSubmit}>
             <Form.Group>
                 <Form.Label>First Name</Form.Label>
                 <Form.Control type='text' />
