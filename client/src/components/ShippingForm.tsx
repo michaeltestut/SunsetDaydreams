@@ -2,10 +2,7 @@ import { Button, Form } from "react-bootstrap"
 import SelectUSState from 'react-select-us-states';
 
 const ShippingForm: React.FC = () => {
-    const handleContinueToPayment = () => {
-        console.log("continue to payment")
-    }
-    return(
+    return (
         <Form>
             <Form.Group>
                 <Form.Label>First Name</Form.Label>
@@ -45,11 +42,11 @@ const ShippingForm: React.FC = () => {
                 <Form.Label>Email</Form.Label>
                 <Form.Control type='text' />
             </Form.Group>
-            {/* <Button variant='outline-dark' onClick={handleContinueToPayment}>
+            {/* <Button variant='outline-dark' onClick={}>
                 Continue to Payment
             </Button> */}
         </Form>
     )
 }
- 
+
 export default ShippingForm;

@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { useAppSelector } from '../../redux/hooks';
 import ShippingForm from '../../components/ShippingForm';
 
-
 const Checkout: React.FC = () => {
   const cart = useAppSelector((state) => state.cart);
 
@@ -14,6 +13,9 @@ const Checkout: React.FC = () => {
     shippingHidden ? setShippingHidden(false) : setShippingHidden(true);
     console.log(shippingHidden)
   }
+
+
+
   return (
     <Container>
       <h2>Checkout</h2>
@@ -21,13 +23,13 @@ const Checkout: React.FC = () => {
         <Col md={6} className="column">
           {!shippingHidden ?
             <>
-              <h3 className="label">Step 1 - Shipping Info</h3>
+              <h4 className="label">Step 1 - Shipping Info</h4>
               <ShippingForm />
               <Button onClick={handleButtonClick}>Continue to Payment</Button>
             </>
-            : 
+            :
             <>
-              <h3 className='label'>Step 2 - Payment Info</h3>
+              <h4 className='label'>Step 2 - Payment Info</h4>
               <h3>This will be the payment area</h3>
               <Button onClick={handleButtonClick}>Edit Shipping Info</Button>
             </>
@@ -36,9 +38,9 @@ const Checkout: React.FC = () => {
 
         <Col md={6}>
           <div>
-            <h3>
+            <h5>
               Order Summary
-            </h3>
+            </h5>
           </div>
           <div>
             Subtotal: ${cart.itemsPrice}
